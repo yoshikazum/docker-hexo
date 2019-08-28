@@ -1,4 +1,5 @@
-FROM node:12.9.0-alpine
+ARG DOCKER_TAG
+FROM node:${DOCKER_TAG}
 
 RUN apk update \
   && apk add --no-cache git \
