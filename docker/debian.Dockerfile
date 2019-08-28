@@ -1,8 +1,8 @@
-ARG DOCKER_TAG=alpine
+ARG DOCKER_TAG=latest
 FROM node:${DOCKER_TAG}
 
-RUN apk update \
-  && apk add --no-cache git \
+RUN apt-get update \
+  && apt-get install -y git \
   && npm install hexo-cli -g
 
 COPY entrypoint.sh /root/

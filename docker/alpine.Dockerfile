@@ -1,4 +1,4 @@
-ARG DOCKER_TAG=alpine
+ARG DOCKER_TAG
 FROM node:${DOCKER_TAG}
 
 RUN apk update \
