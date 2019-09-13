@@ -1,5 +1,4 @@
 name: 'Trigger Docker Hub'
-description: 'HTTP POST to dockerhub webhook'
 # env:
 #    DOCKERHUB_WEBHOOK: ${{secrets.DOCKERHUB_WEBHOOK}}
 on: push
