@@ -2,15 +2,14 @@ name: 'Trigger Docker Hub'
 description: 'HTTP POST to dockerhub webhook'
 # env:
 #    DOCKERHUB_WEBHOOK: ${{secrets.DOCKERHUB_WEBHOOK}}
-on:
-  schedule:
-    - cron: '0 21 * * 0'
+on: push
+  # schedule:
+  #   - cron: '0 21 * * 0'
 jobs:
-  trigger:
-    container:
-      image: appropriate/curl:latest
-      # env:
-      #   DOCKERHUB_WEBHOOK: ${{secrets.DOCKERHUB_WEBHOOK}}
+  curl:
+    runs-on: ubuntu-latest
     steps:
-      - name: trigger
-        run: curl -X POST ${{secrets.DOCKERHUB_WEBHOOK}}
+    - name: curl
+      uses: wei/curl@master
+      with:
+        args: -X ${{secrets.DOCKERHUB_WEBHOOK}}
