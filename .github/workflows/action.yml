@@ -11,4 +11,4 @@ jobs:
     - name: curl
       uses: wei/curl@master
       with:
-        args: -X ${{secrets.DOCKERHUB_WEBHOOK}}
+        args: -X POST ${{secrets.DOCKERHUB_WEBHOOK}}
