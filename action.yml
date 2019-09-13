@@ -1,0 +1,12 @@
+name: 'Trigger Docker Hub'
+description: 'HTTP POST to dockerhub webhook'
+env:
+   DOCKERHUB_WEBHOOK: ${{secrets.DOCKERHUB_WEBHOOK}}
+on:
+  schedule:
+    - cron: '0 21 * * 0'
+runs:
+  using: 'docker'
+  image: appropriate/curl:latest
+  args:
+    - -X POST ${{secrets.DOCKERHUB_WEBHOOK}}
